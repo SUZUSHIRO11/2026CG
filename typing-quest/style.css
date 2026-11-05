@@ -1,0 +1,390 @@
+
+/* 全体設定 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #17152d;
+    color: white;
+    font-family: "Courier New", monospace;
+}
+
+.game-container {
+    max-width: 850px;
+    margin: auto;
+    background: #252344;
+    border: 5px solid #7770b5;
+    padding: 20px;
+    box-shadow: 0 0 25px #6556b5;
+}
+
+/* タイトル */
+.game-header {
+    text-align: center;
+    border-bottom: 3px solid #7770b5;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    color: #ffe66d;
+    font-size: 34px;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px #a34c9e;
+    margin-bottom: 5px;
+}
+
+.game-header p {
+    color: #bdb8ff;
+    margin-top: 5px;
+}
+
+/* ステータス */
+.status-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.status-box {
+    width: 50%;
+    background: #39365f;
+    border: 3px solid #827bc1;
+    padding: 12px;
+}
+
+.status-box h3 {
+    color: #ffe66d;
+    margin-top: 0;
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+    font-size: 13px;
+}
+
+.bar {
+    flex: 1;
+    height: 13px;
+    background: #17152d;
+    border: 2px solid #aaa;
+    overflow: hidden;
+}
+
+.hp-fill {
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.player-fill {
+    background: #40e879;
+}
+
+.enemy-fill {
+    background: #ff5757;
+}
+
+.mp-fill {
+    background: #55baff;
+}
+
+.skill-fill {
+    background: #e6c34a;
+    width: 0%;
+}
+
+/* バトル画面 */
+.battle-field {
+    min-height: 220px;
+    background:
+        linear-gradient(to bottom, #34345d 0%, #252344 75%);
+    border: 3px solid #7770b5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.character {
+    text-align: center;
+    width: 25%;
+}
+
+.character-icon {
+    font-size: 65px;
+    image-rendering: pixelated;
+    filter: drop-shadow(3px 4px 0px #111);
+}
+
+.character p {
+    color: #ffe66d;
+    font-weight: bold;
+}
+
+.hero {
+    animation: float 2s infinite ease-in-out;
+}
+
+.monster {
+    animation: float 1.5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.battle-info {
+    text-align: center;
+    flex: 1;
+}
+
+#stage {
+    color: #ffe66d;
+    font-size: 14px;
+}
+
+#battle-message {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+#effect-message {
+    margin-top: 10px;
+    color: #ffec65;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* タイピング画面 */
+.typing-area {
+    margin-top: 20px;
+    background: #39365f;
+    border: 3px solid #827bc1;
+    padding: 18px;
+    text-align: center;
+}
+
+.typing-title {
+    color: #ffe66d;
+    font-weight: bold;
+}
+
+.word-display {
+    background: #17152d;
+    border: 2px solid #a49ce7;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+#word-kana {
+    color: #aaa5d9;
+    margin: 5px;
+}
+
+#word-romaji {
+    color: #ffe66d;
+    font-size: 32px;
+    margin: 5px;
+    letter-spacing: 3px;
+}
+
+#typing-input {
+    width: 85%;
+    padding: 13px;
+    background: #17152d;
+    color: white;
+    border: 2px solid #ffe66d;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+}
+
+#typing-input:focus {
+    box-shadow: 0 0 10px #ffe66d;
+}
+
+#typing-feedback {
+    min-height: 22px;
+    color: #8cf7b0;
+    font-size: 14px;
+}
+
+.typing-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    color: #ffe66d;
+    font-size: 14px;
+}
+
+/* コンボ・必殺技 */
+.skill-area {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.combo-box,
+.skill-box {
+    background: #39365f;
+    border: 3px solid #827bc1;
+    padding: 12px;
+    text-align: center;
+}
+
+.combo-box {
+    width: 30%;
+}
+
+.combo-box p,
+.skill-box p {
+    color: #ffe66d;
+    margin-top: 0;
+}
+
+.combo-box h2 {
+    color: #ff8c42;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.skill-box {
+    flex: 1;
+}
+
+/* ボタン */
+button {
+    cursor: pointer;
+    border: 3px solid #ffe66d;
+    background: #6456aa;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;
+    box-shadow: 3px 3px #17152d;
+    transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background: #8979db;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#skill-button {
+    margin-top: 10px;
+}
+
+#skill-button.active {
+    background: #d78a26;
+    opacity: 1;
+}
+
+/* 操作エリア */
+.control-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* スコア */
+.score-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 12px;
+    background: #17152d;
+    color: #ffe66d;
+}
+
+/* 結果画面 */
+.result-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.result-box {
+    background: #39365f;
+    border: 4px solid #ffe66d;
+    padding: 35px;
+    text-align: center;
+    width: min(90%, 400px);
+}
+
+.result-box h2 {
+    color: #ffe66d;
+    font-size: 32px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* スマートフォン対応 */
+@media (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-header h1 {
+        font-size: 25px;
+    }
+
+    .battle-field {
+        padding: 8px;
+        min-height: 180px;
+    }
+
+    .character-icon {
+        font-size: 40px;
+    }
+
+    #word-romaji {
+        font-size: 24px;
+    }
+
+    #typing-input {
+        width: 100%;
+    }
+
+    .status-row {
+        gap: 4px;
+        font-size: 11px;
+    }
+
+    .control-area {
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPING QUEST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+
+        <!-- タイトル -->
+        <header class="game-header">
+            <h1>TYPING QUEST</h1>
+            <p>～ 言葉の勇者 ～</p>
+        </header>
+
+        <!-- ステータス -->
+        <section class="status-area">
+
+            <div class="status-box">
+                <h3>勇者 HERO</h3>
+                <div class="status-row">
+                    <span>HP</span>
+                    <div class="bar">
+                        <div id="player-hp-bar" class="hp-fill player-fill"></div>
+                    </div>
+                    <span id="player-hp">100</span>
+                </div>
+                <div class="status-row">
+                    <span>MP</span>
+                    <div class="bar">
+                        <div id="mp-bar" class="hp-fill mp-fill"></div>
+                    </div>
+                    <span id="player-mp">0</span>
+                </div>
+            </div>
+
+            <div class="status-box enemy-status">
+                <h3 id="enemy-name">スライム</h3>
+                <div class="status-row">
+                    <span>HP</span>
+                    <div class="bar">
+                        <div id="enemy-hp-bar" class="hp-fill enemy-fill"></div>
+                    </div>
+                    <span id="enemy-hp">60</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- バトル画面 -->
+        <section class="battle-field">
+
+            <div class="character hero">
+                <div class="character-icon">🛡️</div>
+                <p>HERO</p>
+            </div>
+
+            <div class="battle-info">
+                <p id="stage">STAGE 1</p>
+                <div id="battle-message">モンスターが現れた！</div>
+                <div id="effect-message"></div>
+            </div>
+
+            <div class="character monster">
+                <div id="enemy-icon" class="character-icon">🟢</div>
+                <p id="enemy-label">SLIME</p>
+            </div>
+
+        </section>
+
+        <!-- タイピングエリア -->
+        <section class="typing-area">
+
+            <p class="typing-title">▼ 次の攻撃を入力せよ！ ▼</p>
+
+            <div class="word-display">
+                <p id="word-kana">たたかう</p>
+                <h2 id="word-romaji">tatakau</h2>
+            </div>
+
+            <input
+                type="text"
+                id="typing-input"
+                placeholder="ここにローマ字を入力"
+                autocomplete="off"
+                spellcheck="false"
+                disabled
+            >
+
+            <p id="typing-feedback">ゲームを開始してください</p>
+
+            <div class="typing-info">
+                <span>制限時間</span>
+                <span id="timer">--</span>
+            </div>
+
+        </section>
+
+        <!-- コンボと必殺技 -->
+        <section class="skill-area">
+
+            <div class="combo-box">
+                <p>COMBO</p>
+                <h2 id="combo">0</h2>
+            </div>
+
+            <div class="skill-box">
+                <p>必殺技ゲージ</p>
+                <div class="bar">
+                    <div id="skill-bar" class="hp-fill skill-fill"></div>
+                </div>
+                <button id="skill-button" disabled>
+                    必殺技を発動！
+                </button>
+            </div>
+
+        </section>
+
+        <!-- 操作ボタン -->
+        <section class="control-area">
+            <button id="start-button">ゲームスタート</button>
+            <button id="submit-button" disabled>攻撃する！</button>
+        </section>
+
+        <!-- スコア -->
+        <section class="score-area">
+            <span> SCORE: <strong id="score">0</strong></span>
+            <span> KILL: <strong id="kill">0</strong></span>
+        </section>
+
+        <!-- 結果画面 -->
+        <div id="result-screen" class="result-screen hidden">
+            <div class="result-box">
+                <h2 id="result-title">VICTORY!</h2>
+                <p id="result-text"></p>
+                <button id="retry-button">もう一度遊ぶ</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
